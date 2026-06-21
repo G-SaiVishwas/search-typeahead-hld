@@ -1,0 +1,170 @@
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+.hero {
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #64748b;
+  margin: 0 0 0.5rem;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.subtitle {
+  color: #475569;
+  max-width: 60ch;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+}
+
+.panel {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+}
+
+.search-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.search-row input {
+  flex: 1;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+}
+
+.search-row button,
+.mode-toggle button,
+.trending-panel li button {
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.search-row button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.mode-toggle {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.mode-toggle button {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+.mode-toggle button.active {
+  background: #0f172a;
+  color: white;
+}
+
+.status {
+  margin-top: 0.75rem;
+  color: #475569;
+}
+
+.status.error {
+  color: #b91c1c;
+}
+
+.status.success {
+  color: #047857;
+}
+
+.cache-debug {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #64748b;
+}
+
+.suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.suggestions li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.suggestions li:last-child {
+  border-bottom: none;
+}
+
+.suggestions li.active,
+.suggestions li:hover {
+  background: #eff6ff;
+}
+
+.suggestions .count {
+  color: #64748b;
+}
+
+.trending-panel h2 {
+  margin-top: 0;
+}
+
+.muted {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.trending-panel ol {
+  padding-left: 1.25rem;
+  margin: 1rem 0 0;
+}
+
+.trending-panel li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.trending-panel li button {
+  background: transparent;
+  color: #2563eb;
+  padding: 0;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}

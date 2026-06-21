@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Data / DB
+data/*.db
+data/*.db-journal
+data/trie.pkl
+data/trie.meta.json
+# raw_queries.csv is stored via Git LFS (>100MB)
+
+# Private design notes (never push)
+DESIGN.md
+
+# Node
+frontend/node_modules/
+frontend/dist/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.log
+
+# Runtime
+.pids/
