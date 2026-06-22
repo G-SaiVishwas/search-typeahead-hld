@@ -272,8 +272,22 @@ def build():
     e.append(Spacer(1, 4))
     e.append(Paragraph(
         "The verified trending formula in the seed file is "
-        "<font face='Courier'>0.6&middot;Global + 0.3&middot;Weekly + 0.1&middot;Daily</font>. "
-        "Drive mirrors of the derived files are linked in the README.", BODY))
+        "<font face='Courier'>0.6&middot;Global + 0.3&middot;Weekly + 0.1&middot;Daily</font>.", BODY))
+    e.append(Paragraph("Download links (derived CSV files)", H2))
+    drive_raw = "https://drive.google.com/file/d/1XIbyjLBMxoSptTvZXeK65uIVr-RJ2LWZ/view?usp=sharing"
+    drive_seed = "https://drive.google.com/file/d/1931-OYamJ8ggTzkpPG1nt1R_SDbh1HDg/view?usp=sharing"
+    e.append(tbl([
+        ["File", "Google Drive link"],
+        ["raw_queries.csv",
+         f"<link href='{drive_raw}'><font color='#2563eb'>{drive_raw}</font></link>"],
+        ["typeahed_dataset.csv",
+         f"<link href='{drive_seed}'><font color='#2563eb'>{drive_seed}</font></link>"],
+    ], [3.5 * cm, 11.1 * cm]))
+    e.append(Paragraph(
+        "Kaggle original: "
+        "<link href='https://www.kaggle.com/datasets/dineshydv/aol-user-session-collection-500k'>"
+        "<font color='#2563eb'>kaggle.com/datasets/dineshydv/aol-user-session-collection-500k</font></link>",
+        SMALL))
     e.append(Paragraph("Loading instructions", H2))
     e.append(Paragraph(
         "Place both CSVs in <font face='Courier'>data/</font>, then start the stack. "
