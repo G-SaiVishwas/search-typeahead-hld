@@ -54,7 +54,7 @@ class ConsistentHashRing:
                     bisect.insort(self.ring, h)
                     self.hash_to_node[h] = name
 
-    def remove_node(self, name: str) -> None:
+    def remove_node(self, name: str, drop_client: bool = False) -> None:
         with self._lock:
             to_remove = [h for h, n in self.hash_to_node.items() if n == name]
             for h in to_remove:
@@ -62,6 +62,8 @@ class ConsistentHashRing:
                 idx = bisect.bisect_left(self.ring, h)
                 if idx < len(self.ring) and self.ring[idx] == h:
                     self.ring.pop(idx)
+            if drop_client:
+                self.clients.pop(name, None)
 
     def get_node_name(self, key: str) -> str:
         with self._lock:

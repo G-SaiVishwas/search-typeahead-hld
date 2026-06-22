@@ -45,12 +45,24 @@ cd frontend && npm install && npm run dev
 
 ## Dataset
 
-Place the provided CSV files in `data/`:
+**Source:** AOL User Session Collection (500k) — real anonymized web search logs
+(March–May 2006), published on Kaggle:
+https://www.kaggle.com/datasets/dineshydv/aol-user-session-collection-500k
 
-- `data/typeahed_dataset.csv` — aggregated query counts (seed data)
-- `data/raw_queries.csv` — raw search events with timestamps (replay / batch demo)
+Two derived CSVs are used (place them in `data/`):
 
-Ingestion creates `data/typeahead.db` automatically on first run.
+- `data/typeahed_dataset.csv` — 1,244,453 unique queries aggregated into
+  `Query, Global Count, Weekly Count, Daily Count, Trending Score` (seed data).
+- `data/raw_queries.csv` — 2,969,752 raw `Query, QueryTime` search events
+  (replayed to demonstrate batch writes and recency).
+
+Ingestion (`backend/scripts/ingest.py`, run automatically on first start) bulk-loads
+`typeahed_dataset.csv` into SQLite at `data/typeahead.db`. The trie is then built
+from that table at backend startup.
+
+Derived-file mirrors (Google Drive):
+- raw_queries: https://drive.google.com/file/d/1XIbyjLBMxoSptTvZXeK65uIVr-RJ2LWZ/view?usp=sharing
+- typeahed_dataset: https://drive.google.com/file/d/1931-OYamJ8ggTzkpPG1nt1R_SDbh1HDg/view?usp=sharing
 
 ## Demo commands
 

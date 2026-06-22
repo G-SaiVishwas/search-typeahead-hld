@@ -204,7 +204,7 @@ def cache_demo_rebalance() -> dict:
     cache.ring.add_node(temp_name)
     after_add = {p: cache.ring.get_node_name(cache.cache_key(p, "basic")) for p in sample_prefixes}
 
-    cache.ring.remove_node(temp_name)
+    cache.ring.remove_node(temp_name, drop_client=True)
     after_remove = {p: cache.ring.get_node_name(cache.cache_key(p, "basic")) for p in sample_prefixes}
 
     changed_on_add = sum(1 for p in sample_prefixes if before[p] != after_add[p])
